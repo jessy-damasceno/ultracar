@@ -8,7 +8,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { IClient, ITechnical } from '../interfaces/IUser';
 import VehicleCard from './VehicleCard';
 import {
-	ButtonGroup,
 	createTheme,
 	FormControl,
 	FormControlLabel,
@@ -18,7 +17,7 @@ import {
 } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
 import IVehicle from '../interfaces/IVehicle';
-import { addNewService, readServices } from '../requests/services.requests';
+import { addNewService } from '../requests/services.requests';
 import { users } from '../mocks/users';
 
 const darkTheme = createTheme({

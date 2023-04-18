@@ -3,8 +3,6 @@ import {
 	CssBaseline,
 	Paper,
 	Box,
-	Avatar,
-	Typography,
 	TextField,
 	Button,
 } from '@mui/material';
@@ -12,7 +10,7 @@ import { useState, FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { users } from '../mocks/users';
 
-const LoginPage: FC = (props) => {
+const LoginPage: FC = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 

@@ -31,9 +31,9 @@ export const users: IUser[] = [
   },
 ];
 
-const toninho = users[1];
+const user = users[1];
 
 export const client: IClient = {
-  ...toninho as IClient,
+  ...user as IClient,
   vehicles: [...vehicles],
 }
