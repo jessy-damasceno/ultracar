@@ -31,7 +31,7 @@ const LoginPage: FC = (props) => {
 
 			switch (user?.type) {
 				case 'technical':
-					console.log('Estamos implementando seu login');
+					navigate(`/home/tech/${user.id}`);
 					break;
 				case 'client':
 					navigate(`/home/${user.id}`);

@@ -1,4 +1,4 @@
-import { IClient, IUser } from "../interfaces/User";
+import { IClient, IUser } from "../interfaces/IUser";
 import { vehicles } from "./vehicles";
 
 export const users: IUser[] = [

@@ -9,10 +9,12 @@ import {
   MenuItem,
 } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
+import { useNavigate } from "react-router-dom";
 
 const Header: FC<{ name: string}> = (client) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const navigate = useNavigate();
 
   const handleMenu = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -62,8 +64,9 @@ const Header: FC<{ name: string}> = (client) => {
             open={open}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>Perfil</MenuItem>
-            <MenuItem onClick={handleClose}>Sair</MenuItem>
+            <MenuItem onClick={() => navigate('/home/2')}>Tela Inicial</MenuItem>
+            <MenuItem onClick={() => navigate('/services')}>Serviços</MenuItem>
+            <MenuItem onClick={() => navigate('/')}>Sair</MenuItem>
           </Menu>
         </div>
       </Toolbar>

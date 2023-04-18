@@ -1,10 +1,33 @@
-import { Button, ButtonGroup, CssBaseline, Grid, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import {
+	Button,
+	ButtonGroup,
+	CssBaseline,
+	Grid,
+	Typography,
+} from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import { useZxing } from 'react-zxing';
+import NewServiceAlert from './NewServiceAlert';
+import type { IClient } from '../interfaces/IUser';
 
 export default function QRCodeReader() {
-	const [result, setResult] = useState('');
+	const [client, setClient] = useState<IClient | null>(null);
 	const [paused, setPaused] = useState(false);
+	const [open, setOpen] = React.useState(false);
+
+	useEffect(() => {
+		if (client) {
+			setOpen(true);
+		} else {
+			setOpen(false);
+		}
+	}, [client]);
+
+	const resetReader = () => {
+		setOpen(false);
+		setPaused(false);
+		setClient(null);
+	};
 
 	const {
 		ref,
@@ -17,50 +40,64 @@ export default function QRCodeReader() {
 	} = useZxing({
 		paused,
 		onResult(result) {
-			setResult(result.getText());
+			setClient(JSON.parse(result.getText()));
 		},
 	});
 
 	return (
-		<Grid
-			container
-			alignItems='center'
-			justifyContent='center'
-			flexDirection='column'
-		>
-			<CssBaseline />
-			<video ref={ref} />
-      <Typography variant="body1" component="p" align="center" mt={4} mb={2}>
-				Last result: {result}
-			</Typography>
-			<ButtonGroup
-				variant='contained'
-				aria-label='outlined primary button group'
+		<>
+			<NewServiceAlert
+				open={open}
+				setOpen={setOpen}
+				resetReader={resetReader}
+				client={client}
+			/>
+			<Grid
+				container
+				alignItems='center'
+				justifyContent='center'
+				flexDirection='column'
 			>
-				<Button
-					type='button'
-					color='primary'
-					variant='contained'
-					onClick={() => setPaused(!paused)}
+				<CssBaseline />
+				<video ref={ref} />
+				<Typography
+					variant='overline'
+					component='h3'
+					align='center'
+					mt={4}
+					mb={2}
 				>
-					{paused ? 'Resume' : 'Pause'}
-				</Button>
-				<Button
-					type='button'
-					color='primary'
+					Escaneie o QR Code do cliente para iniciar um novo serviço.
+				</Typography>
+				<ButtonGroup
 					variant='contained'
-					onClick={() => {
-						if (isTorchOn) {
-							torchOff();
-						} else {
-							torchOn();
-						}
-					}}
-					disabled={!isTorchAvailable}
+					aria-label='outlined primary button group'
 				>
-					{isTorchOn ? 'Disable' : 'Enable'} torch
-				</Button>
-			</ButtonGroup>
-		</Grid>
+					<Button
+						type='button'
+						color='primary'
+						variant='contained'
+						onClick={() => setPaused(!paused)}
+					>
+						{paused ? 'Resume' : 'Pause'}
+					</Button>
+					<Button
+						type='button'
+						color='primary'
+						variant='contained'
+						onClick={() => {
+							if (isTorchOn) {
+								torchOff();
+							} else {
+								torchOn();
+							}
+						}}
+						disabled={!isTorchAvailable}
+					>
+						{isTorchOn ? 'Disable' : 'Enable'} torch
+					</Button>
+				</ButtonGroup>
+			</Grid>
+		</>
 	);
 }

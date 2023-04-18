@@ -6,5 +6,5 @@ export default interface IVehicle {
   model: string,
   year: number,
   color: string,
-  owner?: IClient,
+  owner: IClient,
 }
