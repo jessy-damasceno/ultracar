@@ -4,6 +4,7 @@
   "description": "Gerenciamento de serviços de oficina com QR Code (Cliente | Técnico, Mecânico)",
   "main": "index.js",
   "scripts": {
+    "prestart": "cd app/frontend/ && npm install",
     "start": "cd app/frontend/ && npm run dev"
   },
   "repository": {
