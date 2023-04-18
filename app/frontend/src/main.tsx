@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ErrorPage from './pages/ErrorPage';
 import LoginPage from './pages/LoginPage';
+import HomeClient from './pages/HomeClient';
 
 const theme = createTheme({
 	palette: {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
 		path: '/',
 		element: <LoginPage />,
 		errorElement: <ErrorPage />,
+	},
+	{
+		path: '/home/:userId',
+		element: <HomeClient />,
 	},
 ]);
 
