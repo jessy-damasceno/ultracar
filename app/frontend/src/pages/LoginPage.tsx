@@ -9,11 +9,14 @@ import {
 	Button,
 } from '@mui/material';
 import { useState, FC } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { users } from '../mocks/users';
 
-const LoginPage: FC = () => {
+const LoginPage: FC = (props) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+
+	const navigate = useNavigate();
 
 	const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setEmail(event.target.value);
@@ -24,7 +27,19 @@ const LoginPage: FC = () => {
 	};
 
 	const handleClick = () => {
-		console.log(email, password);
+		const user = users.find((user) => user.email === email && user.password === password);
+
+			switch (user?.type) {
+				case 'technical':
+					console.log('Estamos implementando seu login');
+					break;
+				case 'client':
+					navigate(`/home/${user.id}`);
+					break;
+				default:
+					alert('E-mail ou senha incorretos. Por favor, tente novamente.')
+					break;
+			}
 	};
 
 	return (

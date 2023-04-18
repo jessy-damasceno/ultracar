@@ -9,7 +9,6 @@ import {
   MenuItem,
 } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
-// import { IClient } from "../interfaces/User";
 
 const Header: FC<{ name: string}> = (client) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -21,14 +20,6 @@ const Header: FC<{ name: string}> = (client) => {
 
   const handleClose = () => {
     setAnchorEl(null);
-  };
-
-  // Para gerar a letra aleatória do Avatar
-  const randomLetter = () => {
-    const possibleLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    return possibleLetters.charAt(
-      Math.floor(Math.random() * possibleLetters.length)
-    );
   };
 
   return (
@@ -53,7 +44,7 @@ const Header: FC<{ name: string}> = (client) => {
             sx={{ mr: 1 }}
           >
             <Avatar sx={{ bgcolor: deepPurple[500] }}>
-              {randomLetter()}
+              {client.name.charAt(0)}
             </Avatar>
           </IconButton>
           <Menu
@@ -75,14 +66,6 @@ const Header: FC<{ name: string}> = (client) => {
             <MenuItem onClick={handleClose}>Sair</MenuItem>
           </Menu>
         </div>
-        {/* <IconButton
-          size="large"
-          edge="end"
-          aria-label="menu"
-          sx={{ mr: 1 }}
-        >
-          <Icon path={mdiMenu} size={1} />
-        </IconButton> */}
       </Toolbar>
     </AppBar>
   );

@@ -14,7 +14,6 @@ const HomeClient: FC = () => {
 		<>
 			<Header name='Juninho' />
 			{/* <QrCode client={ users[id] as IClient } /> */}
-			<QrCode client={ client } />
 			<QrCodeReader />
 		</>
 	);

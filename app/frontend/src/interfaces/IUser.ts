@@ -1,7 +1,7 @@
 import IVehicle from "./IVehicle";
 
 export interface IUser {
-  id: string,
+  id: number,
   email: string,
   password?: string,
   phoneNumber: string,
@@ -11,7 +11,7 @@ export interface IUser {
 }
 
 export interface IClient extends IUser {
-  vehicles: IVehicle[],
+  vehicles?: IVehicle[],
   type: 'client',
 }
 

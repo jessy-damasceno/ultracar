@@ -1,10 +1,10 @@
-import { IClient } from "./User";
+import { IClient } from "./IUser";
 
 export default interface IVehicle {
-  id?: string,
+  id?: number,
   brand: string,
   model: string,
   year: number,
   color: string,
-  owner: IClient,
+  owner?: IClient,
 }
