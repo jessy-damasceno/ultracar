@@ -1,0 +1,19 @@
+{
+  "name": "ultracar",
+  "version": "1.0.0",
+  "description": "Gerenciamento de serviços de oficina com QR Code (Cliente | Técnico, Mecânico)",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd app/frontend/ && npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessy-damasceno/ultracar.git"
+  },
+  "author": "Jessy Damasceno",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jessy-damasceno/ultracar/issues"
+  },
+  "homepage": "https://github.com/jessy-damasceno/ultracar#readme"
+}
