@@ -14,8 +14,8 @@ const ErrorPage: FC = () => {
       height="100vh"
       bgcolor="background.default"
     >
-      <img src="/ultracar_logo.png" alt="Logo da empresa" width={200} />
-      <Typography variant="h1" component="h2" align="center" mt={4} mb={2}>
+      <img src="/ultracar_logo.png" alt="Logo da empresa" width={300} />
+      <Typography variant="h2" component="h2" align="center" mt={4} mb={2}>
         Oops!
       </Typography>
       <Typography variant="h5" align="center" mb={4}>
