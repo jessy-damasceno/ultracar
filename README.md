@@ -18,6 +18,10 @@ Aqui você vai encontrar os detalhes de como foi feito oGerenciamento de serviç
   * :warning: Confira se em seu dispositivo a porta <strong>5173</strong> está livre!
 O projeto será iniciado em: `http://localhost:5173/`
 
+# LOGIN E SENHA
+## client@test.com senha: client123
+## tech@test.com senha: tech123
+
 </details>
 
 <details>
